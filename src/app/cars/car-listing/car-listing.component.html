@@ -1,0 +1,2 @@
+<app-header (textToSearch)="filterCars($event)"></app-header>
+<app-car-section *ngFor="let item of filteredCars; trackBy" [carsGroup]="item"></app-car-section>

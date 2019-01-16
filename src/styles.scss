@@ -1,0 +1,38 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto');
+
+html,
+body {
+  height: 100%;
+}
+body,
+p {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+.car-price {
+  font-size: 0.9rem;
+  color: #f17b3a;
+}
+
+.model {
+  margin-bottom: 5px;
+  color: #4a4a4a;
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+.brand {
+  color: #9b9b9b;
+  font-size: 0.96rem;  
+}
+
+.year {
+  font-weight: 400;
+}
+
+.page-stretch {
+  width: 100vw;
+  height: 100vh;
+}

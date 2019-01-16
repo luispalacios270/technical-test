@@ -1,0 +1,101 @@
+<div class="row">
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <div
+        class="toolbar-wrapper d-flex align-items-center justify-content-between"
+      >
+        <ng-container *ngIf="!userIsSearching">
+          <div [@fade] class="d-flex align-items-center">
+            <mat-icon
+              *ngIf="hasBackButton"
+              routerLink="/"
+              class="back-icon"
+              matRipple
+            >
+              home
+            </mat-icon>
+            <span>Techinal Test</span>
+          </div>
+          <mat-icon
+            [@fade]
+            (click)="makeSearch()"
+            *ngIf="hasSearchButton"
+            class="search-icon"
+            matRipple
+            >search</mat-icon
+          >
+        </ng-container>
+        <form
+          [@fade]
+          #form="ngForm"
+          *ngIf="userIsSearching"
+          (ngSubmit)="search(form.value)"
+          class="d-flex justify-content-between align-items-center"
+        >
+          <input
+            type="text"
+            name="searchCriteria"
+            ngModel
+            placeholder="Input a brand"
+          />
+          <div class="d-flex align-items-center justify-content-end">
+            <button mat-button>Search</button>
+            <mat-icon (click)="endSearch()" class="search-icon" matRipple
+              >close</mat-icon
+            >
+          </div>
+        </form>
+      </div>
+    </mat-toolbar-row>
+    <mat-toolbar-row
+      [@fade]
+      class="justify-content-between align-items-center flex-column flex-md-row"
+      *ngIf="
+        showComparingBar &&
+        ((firstCarForCompare$ | async) || (secondCarForCompare$ | async))
+      "
+    >
+      <div class="d-flex flex-column  d-md-block">
+        <button
+          [@fade]
+          *ngIf="(firstCarForCompare$ | async) as firstCar"
+          mat-button
+          [matMenuTriggerFor]="removeFirstMenu"
+        >
+          {{ firstCar.model }}
+        </button>
+        <button
+          [@fade]
+          *ngIf="(secondCarForCompare$ | async) as secondCar"
+          mat-button
+          [matMenuTriggerFor]="removeSecondMenu"
+        >
+          {{ secondCar.model }}
+        </button>
+      </div>
+
+      <button
+        routerLink="/cars/comparasion"
+        [disabled]="
+          !(firstCarForCompare$ | async) || !(secondCarForCompare$ | async)
+        "
+        mat-raised-button
+        color="primary"
+      >
+        Compare Models
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</div>
+
+<mat-menu #removeFirstMenu="matMenu">
+  <button (click)="removeFirstCar()" mat-menu-item>
+    Remove From Comparation
+  </button>
+</mat-menu>
+
+<mat-menu #removeSecondMenu="matMenu">
+  <button (click)="removeSecondCar()" mat-menu-item>
+    Remove From Comparation
+  </button>
+</mat-menu>

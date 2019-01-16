@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row" *ngIf="carsGroup">
+    <mat-toolbar class="col-12">
+      <mat-toolbar-row>
+        <span>{{ carsGroup.brand }}</span>
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <div
+      class="col-12 col-sm-4 col-lg-3 wrapper"
+      *ngFor="let car of carsGroup.cars; trackBy: trackByFn"
+    >
+      <mat-card (click)="goToDetailPage(car)" matRipple>
+        <div class="car-image">
+          <img class="img-fluid" src="{{ car.picture | imgSrc }}" />
+
+          <span class="car-year">{{ car.year | date: 'yyyy' }}</span>
+        </div>
+        <div class="footer">
+          <p class="car-model">{{ car.model }}</p>
+          <p class="car-price">{{ car.price | currency }}</p>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</div>

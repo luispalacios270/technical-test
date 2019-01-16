@@ -1,0 +1,13 @@
+<mat-card matRipple class="d-flex align-items-center flex-md-column">
+  <ng-container *ngIf="car">
+    <div class="img-wrapper">
+      <img class="img-fluid img-thumbnail car-img" src="{{ car.picture | imgSrc }}" />
+    </div>
+    <div class="d-flex flex-column info">
+      <p class="model">{{ car.model }}</p>
+      <p class="brand">{{ car.brand }}</p>
+      <p class="year">{{ car.year | date: 'yyyy' }}</p>
+      <p class="car-price">{{ car.price | currency }}</p>
+    </div>
+  </ng-container>
+</mat-card>

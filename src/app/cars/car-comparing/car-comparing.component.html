@@ -1,0 +1,7 @@
+<div class="d-flex flex-column">
+  <app-header [hasBackButton]="true" [showComparingBar]="false" [hasSearchButton]="false"></app-header>
+  <div class="d-flex flex-column flex-md-row wrapper justify-content-center justify-content-md-around">
+    <app-car-comparing-card [car]="firstCar$ | async"></app-car-comparing-card>
+    <app-car-comparing-card [car]="secondCar$ | async"></app-car-comparing-card>
+  </div>
+</div>

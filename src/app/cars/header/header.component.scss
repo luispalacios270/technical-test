@@ -1,0 +1,42 @@
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+mat-toolbar-row {
+    min-height: fit-content;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.toolbar-wrapper {
+    width: 100%;
+}
+
+.back-icon {
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.search-icon {
+    cursor: pointer;
+}
+
+form {
+    width: 100%;
+
+    input {
+        background-color: #5b69b6;
+        border: none;
+        border-radius: 5px;
+        padding: 0 7px;
+        color: white;
+        font-size: 1rem;
+        max-width: 500px;
+        flex: 1;
+
+        &::placeholder {
+            color: #acacac;
+        }
+    }
+}
